@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000', 'https://careerforge-henna.vercel.app'],
+  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000'],
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
@@ -101,23 +101,6 @@ let currentResume = {
 };
 
 // ========== API ENDPOINTS ==========
-
-// Root route
-app.get('/', (req, res) => {
-  res.json({
-    message: 'CareerForge AI API is running',
-    endpoints: {
-      health: '/api/health',
-      jobs: '/api/jobs',
-      resume: '/api/resume/me',
-      upload: '/api/resume/upload',
-      applications: '/api/applications',
-      portfolio: '/api/portfolio',
-      customize: '/api/ai/customize',
-      autoApply: '/api/ai/auto-apply'
-    }
-  });
-});
 
 // Health check
 app.get('/api/health', (req, res) => {
